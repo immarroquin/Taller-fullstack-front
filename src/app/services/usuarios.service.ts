@@ -9,10 +9,18 @@ export class UsuariosService {
   constructor(private httpClient: HttpClient) {}
 
   getUsuarios() {
-    return this.httpClient.get(`${environment.url}/usuarios1`, {
+    return this.httpClient.get(`${environment.url}/api/usuariosback`, {
       headers: {
-        'Access-Control-Allow-Origin': '*', 
-        'Accept': '*',
+        'Accept': 'application/json',
+        'Content-Type': 'application/json',
+      },
+    });
+  }
+
+  loguearUsuario() {
+    return this.httpClient.post(`${environment.url}/api/login`, {
+      headers: {
+        'Accept': 'application/json',
         'Content-Type': 'application/json',
       },
     });
